@@ -1,0 +1,603 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<!-- Head Section -->
+<head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <title>大衆酒場 Tsujicho</title>
+
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/jqueryui/1.12.1/themes/base/jquery-ui.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-material-datetimepicker/2.7.1/css/bootstrap-material-datetimepicker.min.css">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
+
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-select@1.13.11/dist/css/bootstrap-select.min.css">
+<!--    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datetimepicker/4.17.47/css/bootstrap-datetimepicker.min.css" integrity="sha256-yMjaV542P+q1RnH6XByCPDfUFhmOafWbeLPmqKh11zo=" crossorigin="anonymous" />-->
+
+<!--      <link rel="stylesheet" href="http://code.jquery.com/ui/1.9.2/themes/base/jquery-ui.css" />-->
+
+<!--    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-material-datetimepicker/2.7.1/css/bootstrap-material-datetimepicker.min.css">-->
+<!--    <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">-->
+    <style>
+        @font-face {
+            font-family: "ajihude";
+            src: "/static/css/ajihude/ajihude.ttf"
+        }
+        body {
+            text-align: center;
+            background-color: #f5f5f5;
+        }
+        h1, h3, h4 {
+            font-family: "ajihude";
+        }
+        #navigation {
+            border: 1px solid blue;
+        }
+        #navigation-container {
+            background-color: #d2691e;
+            border: 1px solid red;
+        }
+        #header {
+            border:1px solid blue;
+        }
+        #header-container {
+            border: 1px solid red;
+        }
+        #menu-container {
+            background-color: #ffffe0;
+        }
+        .card-body {
+            background-color: #d2691e;
+        }
+        #layout-container {
+            background-color: #ffffe0;
+        }
+        #info-container {
+            background-color: #ffffe0;
+        }
+        img {
+            max-width: 100%;
+            height: auto;
+        }
+        ul {
+            text-align: left;
+        }
+        #googlemap p {
+            text-align: left;
+        }
+
+    </style>
+
+</head>
+
+<!-- Body Section -->
+<body style='padding-top:4.5rem;'>
+
+    <!-- Navigation Section -->
+    <div id="navigation">
+        <div class='container'>
+        <nav class='navbar fixed-top navbar-expand-md navbar-light' id="navigation-container">
+            <button type="button" class="navbar-toggler" data-toggle="collapse" data-target="#bs-navi" aria-controls="bs-navi" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class='collapse navbar-collapse' id='navbarNavDropdown'>
+                <ul class='navbar-nav mr-auto'></ul>
+                <ul class='navbar-nav'>
+                    <li class="nav-item"><a class="nav-link" href="#menu"><i class="fas fa-seedling fa-fw"></i>メニュー</a></li>
+                    <li class="nav-item"><a class="nav-link" href="#layout"><i class="fas fa-syringe fa-fw"></i>レイアウト</a></li>
+                    <li class='nav-item'><a class='nav-link' href="#info"><i class='fas fa-user-cog fa-fw'></i>インフォ</a></li>
+                    <li class='nav-item'><a class='nav-link' data-toggle="modal" href="#modal-reservation"><i class='fas fa-user-cog fa-fw'></i>予約</a></li>
+                    <li class='nav-item'><a class='nav-link' data-toggle="modal" href="#modal-login"><i class='fas fa-cog fa-fw'></i>ログイン</a></li>
+                </ul>
+            </div>
+        </nav>
+        </div>
+    </div>
+
+
+
+
+    <!-- Header Section -->
+    <div id="header" class="mt-5 mb-3 pt-3 pb-3">
+        <div id="header-container" class="container">
+            <h3 class="display-5">めんそ〜れ</h3>
+            <h1 class="display-3 font-weight-bold">大衆酒場 Tsujicho</h1>
+        </div>
+    </div>
+
+
+    <!-- Carousel Section -->
+    <div id="carousel">
+        <div class="container">
+            <div id="carouselExampleSlidesOnly" class="carousel slide carousel-fade" data-interval="2000" data-ride="carousel">
+                <!-- スライドさせる画像の設定 -->
+                <div class="carousel-inner">
+                    <div class="carousel-item active">
+                        <img class="d-block w-80" src="/static/img/img_intro/cheers1.jpg" alt="Coming Soon">
+                    </div>
+                    <div class="carousel-item">
+                        <img class="d-block w-80" src="/static/img/img_intro/cheers2.jpg" alt="Coming Soon">
+                    </div>
+                    <div class="carousel-item">
+                        <img class="d-block w-80" src="/static/img/img_intro/cheers3.jpg" alt="Coming Soon">
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+    <hr>
+
+
+    <!-- Menu Section-->
+    <div id="menu" class="mb-5">
+        <div class="container" id="menu-container">
+            <div class="row">
+                <div class="col-12 m-5">
+                    <h1 class="display-4 font-weight-bold">メニュー</h1>
+                </div>
+            </div>
+            <div class="row">
+                <!-- ここにMenuトップを記述 -->
+                <div class="card-deck">
+                    <div class="card">
+                        <img class="card-img-top" src="/static/img/img_menu/drinks/all-drinks.jpg" alt="drink">
+                        <div class="card-body">
+                            <h3 class="card-title display-4 font-weight-bold">ドリンク</h3>
+                            <ul>
+                                <li>ビール</li>
+                                <li>カクテル・ハイボール</li>
+                                <li>チューハイ</li>
+                                <li>泡盛・焼酎</li>
+                                <li>ソフトドリンク</li>
+                            </ul>
+                            <p class="card-text">上記以外にも各種取り揃えております。</p>
+                        </div>
+                    </div>
+                    <div class="card">
+                        <img class="card-img-top" src="/static/img/img_menu/foods/skewers/skewers14.jpg" alt="food">
+                        <div class="card-body">
+                            <h3 class="card-title display-4 font-weight-bold">フード</h3>
+                            <ul>
+                                <li><a data-toggle="modal" href="#modal-food" data-category="2" data-type="1">うちなー料理</a></li>
+                                <li><a data-toggle="modal" href="#modal-food" data-category="2" data-type="2">串焼き</a></li>
+                                <li><a data-toggle="modal" href="#modal-food" data-category="2" data-type="3">焼き・揚げ・炒め物</a></li>
+                                <li><a data-toggle="modal" href="#modal-food" data-category="2" data-type="4">麺・ご飯物</a></li>
+                                <li><a data-toggle="modal" href="#modal-food" data-category="2" data-type="5">サラダ・小鉢</a></li>
+                            </ul>
+                            <p class="card-text">上記以外にも各種取り揃えております。</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- ここにMenu一覧を記述 -->
+            <div class="modal" tabindex="-1" role="dialog" id="modal-food">
+                <div class="modal-dialog modal-xl" role="document">
+                    <div class="modal-content">
+                        <div class="modal-header">
+                            <h3 class="modal-title display-4 font-weight-bold">フードメニュー</h3>
+                            <button type="button" class="close" data-dismiss="modal" aria-label="閉じる">
+                                <span aria-hidden="true">&times;</span>
+                            </button>
+                        </div>
+                        <div class="modal-body">
+                            <div class="card-group">
+                                <div class="card">
+                                    <img class="card-img-top" src="" alt="" id="menu-img1">
+                                    <div class="card-body">
+                                        <h3 class="card-title" id="menu-name1"></h3>
+                                        <p class="card-text" id="menu-description1"></p>
+                                    </div>
+                                </div>
+                                <div class="card">
+                                    <img class="card-img-top" src="" alt="" id="menu-img2">
+                                    <div class="card-body">
+                                        <h3 class="card-title" id="menu-name2"></h3>
+                                        <p class="card-text" id="menu-description2"></p>
+                                    </div>
+                                </div>
+                                <div class="card">
+                                    <img class="card-img-top" src="" alt="" id="menu-img3">
+                                    <div class="card-body">
+                                        <h3 class="card-title" id="menu-name3"></h3>
+                                        <p class="card-text" id="menu-description3"></p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="modal-footer">
+                            <button type="button" class="btn btn-secondary" data-dismiss="modal">閉じる</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+    </div>
+
+
+    <hr>
+
+
+    <!-- Layout Section -->
+    <div id="layout" class="mb-5">
+        <div class="container" id="layout-container">
+            <div class="row">
+                <div class="col-12 m-5">
+                    <h1 class="display-4 font-weight-bold">レイアウト</h1>
+                </div>
+            </div>
+
+                <div>
+                    <!-- ここに店内の全体写真を記述 -->
+                    <img src="/static/img/s_layout.jpg" alt="layout" class="img-fluid">
+                </div>
+
+            <div class="row">
+                <p class="col-xs-12 col-md-12">お客様の人数に応じてお席をご案内できます。ご利用人数を選択してお席をご覧ください。</p>
+                <div class="dropdown col-xs-12 col-md-12">
+                    <button type="button" class="btn btn-secondary dropdown-toggle" id="dropdownMenu" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                        人数を選んでください
+                    </button>
+                    <div class="dropdown-menu" aria-labelledby="dropdownMenu">
+                        <button class="dropdown-item" type="button" id="select-table1" data-toggle="modal" data-target="#layout-modal" data-table1="1" data-table2="2"> 〜 3人</a></button>
+                        <button class="dropdown-item" type="button" id="select-table2" data-toggle="modal" data-target="#layout-modal" data-table1="2" data-table2="3">2人 〜 4人</a></button>
+                        <button class="dropdown-item" type="button" id="select-table3" data-toggle="modal" data-target="#layout-modal" data-table1="4" data-table2="2">4人 〜</a></button>
+                    </div>
+                </div>
+            </div>
+
+            <!-- ここに表示するLayout内容を記述 -->
+            <div class="modal" tabindex="-1" role="dialog" id="layout-modal">
+                <div class="modal-dialog modal-xl" role="document">
+                    <div class="modal-content">
+                        <div class="modal-header">
+                            <h5 class="modal-title display-4 font-weight-bold">LAYOUT</h5>
+                            <button type="button" class="close" data-dismiss="modal" aria-label="閉じる">
+                                <span aria-hidden="true">&times;</span>
+                            </button>
+                        </div>
+                        <div class="modal-body">
+                            <div class="card-deck selected-layout" id="selected-layout">
+
+                                <div class="card">
+                                    <img class="card-img-top" src="" alt="" id="table-img1">
+                                    <div class="card-body">
+                                        <h3 class="card-title" id="table-type1"></h3>
+                                        <p class="card-text" id="table-description1"></p>
+                                    </div>
+                                </div>
+
+                                <div class="card">
+                                    <img class="card-img-top" src="" alt="" id="table-img2">
+                                    <div class="card-body">
+                                        <h3 class="card-title" id="table-type2"></h3>
+                                        <p class="card-text" id="table-description2"></p>
+                                    </div>
+                                </div>
+
+                            </div>
+                        </div>
+                        <div class="modal-footer">
+                            <button type="button" class="btn btn-secondary" data-dismiss="modal">閉じる</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+    </div>
+
+
+    <hr>
+
+
+    <!-- Infomation Section -->
+    <div id="info" class="mb-5">
+        <div class="container" id="info-container">
+            <div class="row">
+                <div class="col-12 m-5">
+                    <h1 class="display-4 font-weight-bold">お店の情報</h1>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-xs-12 col-md-6">
+                    <div class="embed-responsive embed-responsive-4by3">
+                        <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d894.8398132831328!2d127.67119046837969!3d26.21751407989313!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x34e569362dfa0a21%3A0xd2de2cefc26a77bd!2z5aSn6KGG6YWS5aC0IFRTVUpJQ0hP!5e0!3m2!1sja!2sjp!4v1570891315476!5m2!1sja!2sjp" width="400" height="300" frameborder="0" style="border:0;" allowfullscreen=""></iframe>
+                    </div>
+                </div>
+                <div class="col-xs-12 col-md-6" >
+                    <div class="row">
+                        <div class="col-sm-6 col-md-4">
+                            <h3>Info</h3>
+                        </div>
+                        <div class="col-sm-12 col-md-12">
+                            <ul>
+                                <li>電話 : 090-1942-9814</li>
+                                <li>住所 : 那覇市辻2-6-11</li>
+                                <li>最寄り駅 : ゆいレール「旭橋駅」より 徒歩約10分</li>
+                                <li>最寄りバス停 : 那覇バス「上之蔵」バス停より 徒歩約2分</li>
+                            </ul>
+                        </div>
+                    </div>
+
+                    <div class="row">
+                        <div class="col-sm-6 col-md-6 mt-4">
+                            <h3>owner's voice</h3>
+                            <p>僕はこの地域で生まれ育ち、この地域が大好きです。</p><p>地元の人も観光やビジネスで来られた方もこの地域に縁がある方が気軽に集えるお店にしていきたいので、お近くに来られた際はぜひご来店ください。</p>
+                        </div>
+
+                        <div class="col-sm-6 col-md-6 mt-5">
+                            <a href="#" class="card">
+                                <img src="/static/img/img_info/owner.jpg" alt="Owner's photo Coming Soon">
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+    <!-- Reservation Form Section -->
+    <div class="modal" tabindex="-1" role="dialog" id="modal-reservation">
+        <div class="modal-dialog" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title display-4 font-weight-bold">ご予約フォーム</h5>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="閉じる">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+
+                <div class="modal-body">
+                    <form>
+                        <div class="row">
+                            <div class="form-group col">
+                                <label>ご予約者のお名前:　</label>
+                                <input type="text" class="form-control" id="reservation-name" placeholder="山田　太郎">
+                            </div>
+                            <div class="form-group col">
+                                <label>ご予約者のご連絡先:　</label>
+                                <input type="number" class="form-control" id="reservation-address" placeholder="090-xxxx-xxxx">
+                            </div>
+                         </div>
+                        <div class="row">
+                            <div class="form-group col">
+                                <div>
+                                    <label>ご予約の日:　</label>
+                                </div>
+                                <div>
+                                    <input type="text" class="form-control datepicker" id="reservation-time">
+                                </div>
+                            </div>
+                            <div class="form-group col">
+                                <label>ご予約の人数:　</label>
+                                <input type="number" class="form-control" id="reservation-number" placeholder="半角数字">
+                            </div>
+                         </div>
+    <!--                    コースの予約はselectpickerを使用予定-->
+    <!--                    <div class="row">-->
+    <!--                        <div class="form-group col">-->
+    <!--                            <label>ご予約のコース:　</label>-->
+    <!--                            <input type="text" class="form-control" id="reservation-cource" placeholder="山田　太郎">-->
+    <!--                        </div>-->
+    <!--                     </div>-->
+                        <div class="form-group">
+                            <label>備考</label>
+                            <textarea class="form-control" id="reservation-description" rows="3"></textarea>
+                        </div>
+                        <button type="button" class="btn btn-primary" id="btn-reservation">送信する</button>
+                    </form>
+                </div>
+
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-dismiss="modal">閉じる</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+    <!-- Login Form Section -->
+    <div class="modal" tabindex="-1" role="dialog" id="modal-login">
+        <div class="modal-dialog modal-sm" role="document">
+            <div class="modal-content">
+              <div class="modal-header">
+                <h5 class="modal-title">ログインページ</h5>
+                <button type="button" class="close" data-dismiss="modal" aria-label="閉じる">
+                  <span aria-hidden="true">&times;</span>
+                </button>
+              </div>
+              <div class="modal-body">
+                  <p>管理者用ページへ</p>
+                  <form action="/login" method="post">
+                      <div class="form-group">
+                            <label>ログインID</label>
+                            <input type="number" class="form-control" name="number" placeholder="半角英数字">
+                      </div>
+                      <div class="form-group">
+                            <label>ログインパスワード</label>
+                            <input type="password" class="form-control" name="password" placeholder="パスワード">
+                      </div>
+                            <button type="submit" class="btn btn-primary" id="btn-login">送信する</button>
+                    </form>
+              </div>
+              <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-dismiss="modal">閉じる</button>
+              </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- jQuery first, then Popper.js, then Bootstrap JS -->
+        <script src="https://code.jquery.com/jquery-3.4.1.js" integrity="sha256-WpOohJOqMqqyKL9FccASB9O0KwACQJpFTUBLTYOVvVU=" crossorigin="anonymous"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
+        <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
+
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.24.0/moment.min.js" integrity="sha256-4iQZ6BVL4qNKlQ27TExEhBN1HFPvAvAMbFavKKosSWQ=" crossorigin="anonymous"></script>
+
+    <!--    <script src="http://code.jquery.com/ui/1.9.2/jquery-ui.js"></script>-->
+    <!--    <script src="http://ajax.googleapis.com/ajax/libs/jqueryui/1/i18n/jquery.ui.datepicker-ja.min.js"></script>-->
+
+        <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.20.1/locale/ja.js"></script>
+        <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-material-datetimepicker/2.7.1/js/bootstrap-material-datetimepicker.min.js"></script>
+    <script>
+          // ここにjQuery書く
+          $(function(){
+                //言語の設定。defaultは1に設定。
+                let language = 1;
+
+                //予約フォームでコースを選択する際のselectpickerの設定
+                // $('.selectpicker').selectpicker();
+                // for(var i=0; i<data.data.length; i++){
+                //    $('.selectpicker').append($('<option>').html(data.data[i].name).val(data.data[i].name));
+                // }
+                // $('.selectpicker').selectpicker('refresh');
+
+
+                //datepickerの設定
+                // $.datepicker.setDefaults( $.datepicker.regional[ "ja" ] );
+                // $( "#reservation-time" ).datepicker();
+
+                $("#reservation-time").bootstrapMaterialDatePicker({
+                    weekStart:0,
+                    lang: 'ja',
+                    okText: '次へ',
+                    clearText: 'クリア',
+                    format:"YYYY-MM-DD HH:mm"
+                });
+
+
+
+                // layout sectionのdropボタン押下の処理
+                $('#layout-modal').on('show.bs.modal', function(event){
+                    console.log('#layout-modal event: ', event.relatedTarget.dataset);
+                    let dataset = event.relatedTarget.dataset;
+                    let section = 1;
+                    let seats = [
+                        {'type': Number(dataset.table1)},
+                        {'type': Number(dataset.table2)}
+                    ]
+                    console.log('#layout-modal seats: ', seats);
+                    console.log('#layout-modal array type: ', typeof seats);
+
+                    let data = {
+                        'section': section,
+                        'languageId': language,
+                        'seatsIds': seats
+                    };
+                    data = JSON.stringify(data);
+
+                    $.ajax({
+                        'type': 'POST',
+                        'contentType': 'application/json',
+                        'url': 'http://127.0.0.1:5000/post_db',
+                        'data': data,
+                    }).then(function(response){
+                        console.log('ajax response: ', response);
+                        console.log('ajax response typeof: ', typeof response);
+
+                        $('#table-img1').attr('src', response.data[0][2]);
+                        $('#table-img2').attr('src', response.data[1][2]);
+
+                        $('#table-type1').text(response.data[0][0]);
+                        $('#table-type2').text(response.data[1][0]);
+
+                        $('#table-description1').text(response.data[0][1]);
+                        $('#table-description2').text(response.data[1][1]);
+                    },
+                    function(error){
+                        console.log('ajax error: ', error);
+                    });
+                });
+
+
+
+                // menu sectionのdropボタン押下の処理
+                $('#modal-food').on('show.bs.modal', function(event){
+                    console.log('#modal-food event: ', event.relatedTarget.dataset);
+                    let dataset = event.relatedTarget.dataset;
+                    let section = 2;
+                    let data = {
+                        'section': section,
+                        'languageId': language,
+                        'category': Number(dataset.category),
+                        'type': Number(dataset.type)
+                    };
+                    data = JSON.stringify(data);
+                    console.log('modal-food data: ', data)
+
+                    $.ajax({
+                        'type': 'POST',
+                        'contentType': 'application/json',
+                        'url': 'http://127.0.0.1:5000/post_db',
+                        'data': data,
+                    }).then(function(response){
+                        console.log('ajax response: ', response);
+                        console.log('ajax response typeof: ', typeof response);
+
+                        $('#menu-img1').attr('src', response.data[0][2]);
+                        $('#menu-img2').attr('src', response.data[1][2]);
+                        $('#menu-img3').attr('src', response.data[2][2]);
+
+                        $('#menu-name1').text(response.data[0][0]);
+                        $('#menu-name2').text(response.data[1][0]);
+                        $('#menu-name3').text(response.data[2][0]);
+
+                        $('#menu-description1').text(response.data[0][1]);
+                        $('#menu-description2').text(response.data[1][1]);
+                        $('#menu-description3').text(response.data[2][1]);
+                    },
+                    function(error){
+                        console.log('ajax error: ', error);
+                    });
+                });
+
+
+                //予約フォームの保存ボタン押下時の処理
+                $('#btn-reservation').on('click', function(){
+                    let name = $('#reservation-name').val();
+                    let address = $('#reservation-address').val();
+                    let time = $('#reservation-time').val();
+                    let number = $('#reservation-number').val();
+                    let description = $('#reservation-description').val();
+
+                    //コースメニューの内容が決定するまではコースの値は0にしておく
+                    let course = 0;
+
+                    console.log('course: ', course);
+
+                    $.ajax({
+                        'type': 'POST',
+                        'url': 'http://127.0.0.1:5000/reservation',
+                        data: {
+                            'name': name,
+                            'address': address,
+                            'time': time,
+                            'number': number,
+                            'course': course,
+                            'description': description
+                        }
+                    }).then(function(response){
+                        console.log('modal-reservation ajax response: ', response);
+                        alert('予約しました。');
+                        $('#modal-reservation').modal('hide');
+                    }, function(error){
+                        console.log('modal-reservation ajax error: ', error);
+                        alert('予約の登録は出来ませんでした。');
+                    })
+                });
+
+          });
+
+        </script>
+
+</body>
+</html>
