@@ -1,0 +1,426 @@
+<!DOCTYPE html>
+<html lang='ja'>
+<head>
+    <meta charset='utf-8'>
+    <meta http-equiv='X-UA-Compatible' content='IE=edge'>
+    <meta name='viewport' content='width=device-width, initial-scale=1'>
+
+    <title>管理者ページ</title>
+
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://cdn.datatables.net/1.10.20/css/jquery.dataTables.min.css">
+
+    <!--		<link rel='stylesheet' type='text/css' href='../css/all.css'>-->
+    <!--		<link rel='stylesheet' type='text/css' href='../css/datatables.min.css'>-->
+    <!--		<link href='../css/datatables.min.css' rel='stylesheet' type='text/css'>-->
+
+    <style type='text/css'>
+			.table > thead > tr > th {
+			  vertical-align: middle;
+			  text-align: center;
+			}
+
+			.dt-body-center{
+			  text-align: center;
+			}
+
+            .tt-suggestion {
+                background-color: #FFFAFA;
+                border-radius: 3px;
+                border: 1px solid black;
+            }
+		</style>
+
+</head>
+
+<body style='padding-top:4.5rem;'>
+<nav class='navbar fixed-top navbar-expand-xl navbar-dark bg-info'>
+    <button class='navbar-toggler' type='button' data-toggle='collapse' data-target='#navbarNavDropdown' aria-controls='navbarNavDropdown' aria-expanded='false' aria-label='Toggle navigation'>
+        <span class='navbar-toggler-icon'></span>
+    </button>
+    <div class='collapse navbar-collapse' id='navbarNavDropdown'>
+        <ul class='navbar-nav mr-auto'>
+            <li class='nav-item'><a class='nav-link' href='../planting'><i class='fas fa-clipboard-list fa-fw'></i>生産管理</a></li>
+            <li class="nav-item"><a class="nav-link" href="../achieve"><i class="fas fa-shoe-prints fa-fw"></i>行動実績</a></li>
+            <li class='nav-item'><a class='nav-link' href='../calendar'><i class='fas fa-layer-group fa-fw'></i>予定表</a></li>
+            <li class='nav-item active'><a class='nav-link' href='../login'><i class="fas fa-seedling"></i>メニュー</a></li>
+        </ul>
+        <ul class='navbar-nav'>
+            <li class='nav-item'><a class='nav-link' href='../user'><i class='fas fa-user-cog fa-fw'></i>ユーザー設定</a></li>
+            <li class='nav-item'><a class='nav-link' href='../system'><i class='fas fa-cog fa-fw'></i>システム設定</a></li>
+            <li class='nav-item'><a class='nav-link' href='../code'><i class='fab fa-react fa-fw'></i>コード</a></li>
+        </ul>
+    </div>
+</nav>
+
+<div class='container-fluid bg-white'>
+    <!-- ボタンエリア -->
+    <div class='mt-2'>
+        <button class='btn btn-sm btn-outline-info' id='btn-add'><i class='fas fa-plus-square fa-fw'></i>追加</button>
+        <button class='btn btn-sm btn-outline-info' id='btn-modify'><i class='fas fa-edit fa-fw'></i>編集</button>
+        <button class='btn btn-sm btn-outline-info' id='btn-delete'><i class='fas fa-trash-alt fa-fw'></i>削除</button>
+    </div>
+
+    <!-- 一覧表 -->
+    <div class='table-responsive'>
+        <table class='table text-nowrap table-bordered table-sm' id='table-menu' style="width:100%;">
+            <thead class='thead-dark'>
+            <tr class='info'>
+                <th class='d-none'>id</th>
+                <th>言語id</th>
+                <th>カテゴリ</th>
+                <th>種類</th>
+                <th>名前</th>
+                <th>金額</th>
+                <th>商品説明</th>
+                <th>src</th>
+            </tr>
+            </thead>
+            <tbody>
+            </tbody>
+        </table>
+    </div>
+</div>
+
+<!-- 情報表示用ダイアログ -->
+<div class='modal' id='modal-menu' tabindex='-1' role='dialog' aria-labelledby='modal-crops-label' aria-hidden='true' data-show='true' data-keyboard='false' data-backdrop='static'>
+    <div class='modal-dialog modal-xl modal-dialog-scrollable'>
+        <div class='modal-content'>
+            <div class='modal-header'>
+                <h4 class='modal-title'>メニューデータ</h4>
+            </div>
+
+            <div class='modal-body'>
+                <div class='form-group d-none'>
+                    <div class='col-12'>
+                        <label>_id：</label>
+                        <input type='text' id='txt-id' class='form-control' disabled>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <div class='col-4'>
+                        <label>言語id：</label>
+                        <input type='text' id='txt-language' class='form-control'>
+                    </div>
+                    <div class='col-4'>
+                        <label>カテゴリ：</label>
+                        <input type='text' id='txt-category' class='form-control'>
+                    </div>
+                    <div class='col-4'>
+                        <label>種類：</label>
+                        <input type='text' id='txt-type' class='form-control'>
+                    </div>
+                    <div class='col-8'>
+                        <label>名前：</label>
+                        <input type='text' id='txt-name' class='form-control'>
+                    </div>
+                    <div class='col-4'>
+                        <label>金額：</label>
+                        <input type='text' id='txt-price' class='form-control' placeholder="半角数字のみ">
+                    </div>
+                    <div class='col-12'>
+                        <label>商品説明：</label>
+                        <input type='text' id='txt-description' class='form-control'>
+                    </div>
+                    <div class='col-12'>
+                        <label>src：</label>
+                        <input type='text' id='txt-src' class='form-control'>
+                    </div>
+                </div>
+            </div>
+            <div class='modal-footer'>
+                <button type='button' class='btn btn-secondary' data-dismiss='modal' id='btn-famic-save'><i class='fas fa-save fa-fw'></i>保存</button>
+                <button type='button' class='btn btn-secondary' data-dismiss='modal' id='btn-famic-close'><i class='fas fa-window-close fa-fw'></i>閉じる</button>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+<!-- jQuery first, then Popper.js, then Bootstrap JS -->
+<script src="https://code.jquery.com/jquery-3.4.1.js" integrity="sha256-WpOohJOqMqqyKL9FccASB9O0KwACQJpFTUBLTYOVvVU=" crossorigin="anonymous"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
+
+<!--		<script src='../js/datatables.min.js'></script>-->
+<script src="https://cdn.datatables.net/1.10.20/js/jquery.dataTables.min.js"></script>
+
+
+<script>
+             // テーブルの選択行データ格納用
+			let dataRow;
+
+			//使用するDBのテーブルを設定
+			let table = 'menuMaster';
+
+
+			// テーブルのデータ読み込み
+			function setTable(data) {
+			    console.log('setTable data: ', data);
+
+				// テーブル定義
+				$('#table-menu').DataTable({
+					'destroy': true,
+					// 件数切替機能
+					'lengthChange': false,
+// 					"lengthMenu": [ [10, 25, 50, 100, -1], [10, 25, 50, 100, "ALL"] ],
+					'pageLength': 200,
+					// 検索機能
+					'searching': false,
+					// ソート機能
+					'ordering': true,
+					'order': [ [1, 'asc'] ],
+					// 情報表示
+					'info': false,
+					// ページング機能
+ 					"paging": false,
+					'pagingType': "full_numbers",
+// 					"pageLength": -1,
+					// 状態保存
+					'stateSave': false,
+					// スクロールバー
+					'scrollX': true,
+					'scrollY': "60vh",
+					'scrollCollapse': true,
+				    'data': data.data,
+                    'length': 200,
+					// 列設定
+					'columnDefs': [
+						{ 'targets': 0, 'visible': false, 'orderable': false, 'data': '0'},
+						{ 'targets': 1, 'visible': true,  'orderable': false, 'data': '1'},
+						{ 'targets': 2, 'visible': true,  'orderable': false, 'data': '2'},
+						{ 'targets': 3, 'visible': true,  'orderable': false, 'data': '3'},
+						{ 'targets': 4, 'visible': true,  'orderable': false, 'data': '4'},
+						{ 'targets': 4, 'visible': true,  'orderable': false, 'data': '5'},
+						{ 'targets': 4, 'visible': true,  'orderable': false, 'data': '6'},
+						{ 'targets': 4, 'visible': true,  'orderable': false, 'data': '7'}
+					]
+				});
+				//検索ボタンを活性化
+				$('#btn-search').prop('disabled', false);
+			}
+
+
+			// テーブル行選択時の処理
+			$('#table-menu tbody').on('click', 'tr', function() {
+				if ($(this).find('.dataTables_empty').length == 0) {
+					let table = $('#table-menu').DataTable();
+
+					// 選択行のデータ内容をセット
+					dataRow = table.row(this).data();
+					console.log('table-menu tbody dataRow: ', dataRow);
+
+					// 選択行の背景色をセット
+					table.$('tr.selected').removeClass('selected table-success');
+					$(this).addClass('selected table-success');
+
+					// 編集＆削除ボタンを活性化
+					$('#btn-modify').prop("disabled", false);
+					$('#btn-delete').prop("disabled", false);
+					//$('#btn-add').prop("disabled", true);
+				}
+			});
+
+
+			// 追加ボタン
+			$('#btn-add').click(function() {
+				// モーダルウィンドウを表示
+				$('#modal-menu').modal({}, {'data': null});
+				// 検索用インプットタグの値をクリア
+				$('#txt-search-name').val('');
+
+			});
+
+
+			// 編集ボタン押下イベント
+			$('#btn-modify').click(function() {
+				// モーダルウィンドウを表示
+				$('#modal-menu').modal({}, {'data': dataRow})
+				// 検索用インプットタグの値をクリア
+				$('#txt-search-name').val('');
+			});
+
+
+			// 削除ボタン押下イベント
+			$('#btn-delete').click(function() {
+				ret = confirm('選択行を削除します。よろしいですか？');
+				if (ret){
+					console.log('削除ボタン押下イベント dataRow[0]: ', dataRow[0]);
+					$.ajax({
+						'type': 'DELETE',
+						'url': 'http://127.0.0.1:5000/delete_menu',
+						'data': {'id': dataRow[0]}
+					}).then(function(response){
+							console.log('削除ボタン押下イベント response: ', response);
+							alert('データを削除しました。');
+
+							// テーブルデータを再読み込み
+                            initData();
+							// ボタン非活性化
+							$('#btn-modify').prop('disabled', true);
+							$('#btn-delete').prop('disabled', true);
+						},
+						function(error){
+							console.log('削除ボタン押下イベント error: ', error);
+							alert('削除エラー');
+
+							// テーブルデータを再読み込み
+                            initData();
+						}
+					);
+				};
+			});
+
+
+
+			// 情報ウィンドウ表示イベント
+			$('#modal-menu').on('show.bs.modal', function(e) {
+				var data = e.relatedTarget.data;
+				console.log('情報ウィンドウ表示イベント data: ', data);
+				console.log('情報ウィンドウ表示イベント data: ', typeof data);
+				var modal = $(this);
+                $('.form-control').prop('disabled', false);
+				if (data) {
+					// 更新の場合、各種入力欄に対象データ内容をセット
+ 					modal.find('#txt-id').val(data[0]);
+ 					modal.find('#txt-language').val(data[1]);
+ 					modal.find('#txt-category').val(data[2]);
+ 					modal.find('#txt-type').val(data[3]);
+ 					modal.find('#txt-name').val(data[4]);
+ 					modal.find('#txt-price').val(data[5]);
+ 					modal.find('#txt-description').val(data[6]);
+ 					modal.find('#txt-src').val(data[7]);
+				}
+				else {
+					// 新規登録の場合、各種入力欄へブランクをセット
+					modal.find('#txt-id').val(null);
+ 					modal.find('#txt-language').val(null);
+ 					modal.find('#txt-category').val(null);
+ 					modal.find('#txt-type').val(null);
+ 					modal.find('#txt-name').val(null);
+ 					modal.find('#txt-price').val(null);
+ 					modal.find('#txt-description').val(null);
+ 					modal.find('#txt-src').val(null);
+				};
+			});
+
+
+
+			// 編集ウィンドウの保存ボタンイベント
+			$('#btn-famic-save').click(function () {
+
+ 				let id = $('#txt-id').val();
+ 				let language = $('#txt-language').val();
+ 				let category = $('#txt-category').val();
+ 				let type = $('#txt-type').val();
+ 				let name = $('#txt-name').val();
+ 				let price = $('#txt-price').val();
+ 				let description = $('#txt-description').val();
+ 				let src = $('#txt-src').val();
+
+				// 入力チェック
+				if (!name) {
+					alert("商品名を入力してください");
+					return false;
+				}
+
+				let data = {
+ 					'id': id,
+					'language': language,
+					'category': category,
+					'type': type,
+					'name': name,
+					'price': price,
+					'description': description,
+					'src': src
+ 				}
+ 				data = JSON.stringify(data);
+
+				// データ更新(新規か編集か判定)
+				//既存のデータを編集する処理
+				if(id != ''){
+					$.ajax({
+						'type': 'PUT',
+						'contentType': 'application/json',
+						'url': 'http://127.0.0.1:5000/save_menu',
+						'data': data
+					}).then(function(response){
+						console.log('編集ウィンドウの保存ボタンイベント if response: ', response);
+						alert('データを更新しました。');
+
+						initData();
+
+						// ボタン非活性化
+						$('#btn-modify').prop('disabled', true);
+						$('#btn-delete').prop('disabled', true);
+					},function(error){
+						console.log('編集ウィンドウの保存ボタンイベント if error: ', error);
+						alert('更新エラー');
+					});
+				}
+				//新規のデータを登録する処理
+				else{
+					$.ajax({
+						'type': 'POST',
+						'contentType': 'application/json',
+						'url': 'http://127.0.0.1:5000/save_menu',
+						'data': data
+					}).then(function(response){
+						console.log('編集ウィンドウの保存ボタンイベント else response: ', response);
+						alert('データを更新しました。');
+						initData();
+
+						// ボタン非活性化
+						$('#btn-modify').prop('disabled', true);
+						$('#btn-delete').prop('disabled', true);
+					},function(error){
+						console.log('編集ウィンドウの保存ボタンイベント else error: ', error);
+						alert('更新エラー');
+					});
+				}
+			});
+
+
+
+            /**
+            *ajaxでDBから検索条件に合うデータを取得するfunction
+            *DataTable()へレスポンスデータを渡す
+            */
+            function getData(){
+			    $.ajax({
+					'type': 'GET',
+					'url': 'http://127.0.0.1:5000/get_db',
+					'data': {
+					    'table': table
+					}
+				}).then(function(response){
+						console.log('getData response response: ', response);
+
+						setTable(response);
+					},
+					function(error){
+						console.log('getData response error: ', error);
+					}
+				);
+			}
+
+
+            // 初期処理
+			function init() {
+				// ボタン非活性化
+				$('#btn-modify').prop('disabled', true);
+				$('#btn-delete').prop('disabled', true);
+			};
+
+
+		    $(function(){
+
+			    // 初期処理実行
+			    init();
+
+			    getData();
+
+		    });
+		</script>
+</body>
+</html>
