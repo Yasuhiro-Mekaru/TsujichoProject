@@ -12,16 +12,18 @@
     <!-- Bootstrap CSS -->
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/jqueryui/1.12.1/themes/base/jquery-ui.min.css">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-material-datetimepicker/2.7.1/css/bootstrap-material-datetimepicker.min.css">
-    <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
 
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-select@1.13.11/dist/css/bootstrap-select.min.css">
-<!--    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datetimepicker/4.17.47/css/bootstrap-datetimepicker.min.css" integrity="sha256-yMjaV542P+q1RnH6XByCPDfUFhmOafWbeLPmqKh11zo=" crossorigin="anonymous" />-->
 
-<!--      <link rel="stylesheet" href="http://code.jquery.com/ui/1.9.2/themes/base/jquery-ui.css" />-->
-
+    <!-- material picker用CDN -->
 <!--    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-material-datetimepicker/2.7.1/css/bootstrap-material-datetimepicker.min.css">-->
 <!--    <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">-->
+
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/pickadate.js/3.6.4/compressed/themes/default.css" integrity="sha256-wtVxHQXXtr975G710f51YDv94+6f6cuK49PcANcKccY=" crossorigin="anonymous" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/pickadate.js/3.6.4/compressed/themes/default.date.css" integrity="sha256-U24A2dULD5s+Dl/tKvi5zAe+CAMKBFUaHUtLN8lRnKE=" crossorigin="anonymous" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/pickadate.js/3.6.4/compressed/themes/default.time.css" integrity="sha256-dtpQarv++ugnrcY7o6Gr3m7fIJFJDSx8v76jjTqEeKE=" crossorigin="anonymous" />
+
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-select@1.13.11/dist/css/bootstrap-select.min.css">
+
     <style>
         @font-face {
             font-family: "ajihude";
@@ -31,7 +33,7 @@
             text-align: center;
             background-color: #f5f5f5;
         }
-        h1, h3, h4 {
+        h1, h2, h3, h4 {
             font-family: "ajihude";
         }
         #navigation-container {
@@ -76,9 +78,9 @@
 <body style='padding-top:4.5rem;'>
 
     <!-- Navigation Section -->
-        <nav class='navbar fixed-top navbar-expand-md navbar-light' id="navigation-container">
-            <button type="button" class="navbar-toggler" data-toggle="collapse" data-target="#bs-navi" aria-controls="bs-navi" aria-expanded="false" aria-label="Toggle navigation">
-                <span class="navbar-toggler-icon"></span>
+        <nav class='navbar fixed-top navbar-expand-xl navbar-light' id="navigation-container">
+            <button class='navbar-toggler' type='button' data-toggle='collapse' data-target='#navbarNavDropdown' aria-controls='navbarNavDropdown' aria-expanded='false' aria-label='Toggle navigation'>
+                <span class='navbar-toggler-icon'></span>
             </button>
             <div class='collapse navbar-collapse' id='navbarNavDropdown'>
                 <ul class='navbar-nav mr-auto'></ul>
@@ -86,7 +88,7 @@
                     <li class="nav-item"><a class="nav-link" href="#menu">メニュー</a></li>
                     <li class="nav-item"><a class="nav-link" href="#layout">お座席</a></li>
                     <li class='nav-item'><a class='nav-link' href="#info">インフォ</a></li>
-                    <li class='nav-item'><a class='nav-link' data-toggle="modal" href="modal-reservation">予約</a></li>
+                    <li class='nav-item'><a class='nav-link' data-toggle="modal" href="#modal-reservation">予約</a></li>
                     <li class='nav-item'><a class='nav-link' data-toggle="modal" href="#modal-login">ログイン</a></li>
                 </ul>
             </div>
@@ -145,15 +147,15 @@
 <!--    </div>-->
 
 
-<!--    <hr>-->
+    <hr>
 
 
     <!-- Menu Section-->
     <div id="menu" class="mb-5">
         <div class="container" id="menu-container">
             <div class="row">
-                <div class="col-12 m-5">
-                    <h1 class="display-4 font-weight-bold">メニュー</h1>
+                <div class="col-12">
+                    <h2 class="display-3 font-weight-bold">メニュー</h2>
                 </div>
             </div>
             <div class="row">
@@ -236,15 +238,15 @@
     </div>
 
 
-<!--    <hr>-->
+    <hr>
 
 
     <!-- Layout Section -->
     <div id="layout" class="mb-5">
         <div class="container" id="layout-container">
             <div class="row">
-                <div class="col-12 m-5">
-                    <h1 class="display-4 font-weight-bold">お座席タイプ</h1>
+                <div class="col-12">
+                    <h2 class="display-3 font-weight-bold">お座席タイプ</h2>
                 </div>
             </div>
             <div>
@@ -283,15 +285,15 @@
     </div>
 
 
-<!--    <hr>-->
+    <hr>
 
 
     <!-- Infomation Section -->
     <div id="info" class="mb-5">
         <div class="container" id="info-container">
             <div class="row">
-                <div class="col-12 m-5">
-                    <h1 class="display-4 font-weight-bold">お店の情報</h1>
+                <div class="col-12">
+                    <h2 class="display-3 font-weight-bold">お店の情報</h2>
                 </div>
             </div>
             <div class="row">
@@ -338,7 +340,7 @@
         <div class="modal-dialog" role="document">
             <div class="modal-content">
                 <div class="modal-header">
-                    <h5 class="modal-title display-4 font-weight-bold">ご予約フォーム</h5>
+                    <h5 class="modal-title display-4 font-weight-bold">予約フォーム</h5>
                     <button type="button" class="close" data-dismiss="modal" aria-label="閉じる">
                         <span aria-hidden="true">&times;</span>
                     </button>
@@ -348,50 +350,50 @@
                     <form>
                         <div class="row">
                             <div class="form-group col">
-                                <label>ご予約者のお名前:　</label>
+                                <label>お名前:　</label>
                                 <input type="text" class="form-control" id="reservation-name" placeholder="山田　太郎">
                             </div>
                             <div class="form-group col">
-                                <label>ご予約者のご連絡先:　</label>
+                                <label>ご連絡先:　</label>
                                 <input type="number" class="form-control" id="reservation-address" placeholder="090-xxxx-xxxx">
                             </div>
-                         </div>
+                        </div>
+                        <hr>
                         <div class="row">
                             <div class="form-group col">
-                                <div>
-                                    <label>ご予約の日:　</label>
-                                </div>
-                                <div>
-                                    <input type="text" class="form-control datepicker" id="reservation-time">
-                                </div>
+                                <label>日付:　</label>
+<!--                                    <input type="text" class="form-control datepicker" id="reservation-time">-->
+                                <input type="text" class="form-control" id="datepicker">
                             </div>
                             <div class="form-group col">
-                                <label>ご予約の時間:　</label>
-                                <input type="text" class="form-control" id="reservation-hour-time">
+                                <label>開始時間:　</label>
+<!--                                <input type="text" class="form-control" id="reservation-hour-time">-->
+                                <input type="text" class="form-control" id="timepicker">
                             </div>
-                         </div>
-
+                        </div>
+                        <hr>
                         <div class="row">
                             <div class="form-group col">
-                                <label>ご予約の人数:　</label>
+                                <label>人数:　</label>
                                 <input type="number" class="form-control" id="reservation-number" placeholder="半角数字">
                             </div>
                             <div class="form-group col">
-                                <label>ご予約の席タイプ:　</label>
-                                <input type="number" class="form-control" id="reservation-seat-type">
+                                <!-- コース料理は下のselect pickerを使用予定 -->
+                                <label>コース:　</label>
+                                <input type="number" class="form-control" id="reservation-course">
                             </div>
-                            <div class="form-group col">
-                                <div class="dropdown col-xs-12 col-md-12">
-                                    <button type="button" class="btn btn-secondary dropdown-toggle" id="dropdownMenu" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                                        人数を選んでください
-                                    </button>
-                                    <div class="dropdown-menu" aria-labelledby="dropdownMenu">
-                                        <button class="dropdown-item" type="button" id="select-table1" data-toggle="modal" data-target="#layout-modal" data-table1="1" data-table2="2"> 〜 3人</a></button>
-                                        <button class="dropdown-item" type="button" id="select-table2" data-toggle="modal" data-target="#layout-modal" data-table1="2" data-table2="3">2人 〜 4人</a></button>
-                                        <button class="dropdown-item" type="button" id="select-table3" data-toggle="modal" data-target="#layout-modal" data-table1="4" data-table2="2">4人 〜</a></button>
-                                    </div>
-                                </div>
-                            </div>
+<!--                            <div class="form-group col">-->
+<!--                                <div class="dropdown col-xs-12 col-md-12">-->
+<!--                                    <button type="button" class="btn btn-secondary dropdown-toggle" id="dropdownMenu" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">-->
+<!--                                        人数を選んでください-->
+<!--                                    </button>-->
+<!--                                    <div class="dropdown-menu" aria-labelledby="dropdownMenu">-->
+<!--                                        <button class="dropdown-item" type="button" id="select-table1" data-toggle="modal" data-target="#layout-modal" data-table1="1" data-table2="2"> 〜 3人</a></button>-->
+<!--                                        <button class="dropdown-item" type="button" id="select-table2" data-toggle="modal" data-target="#layout-modal" data-table1="2" data-table2="3">2人 〜 4人</a></button>-->
+<!--                                        <button class="dropdown-item" type="button" id="select-table3" data-toggle="modal" data-target="#layout-modal" data-table1="4" data-table2="2">4人 〜</a></button>-->
+<!--                                    </div>-->
+<!--                                </div>-->
+<!--                            </div>-->
                          </div>
 
     <!--                    コースの予約はselectpickerを使用予定-->
@@ -401,10 +403,14 @@
     <!--                            <input type="text" class="form-control" id="reservation-cource" placeholder="山田　太郎">-->
     <!--                        </div>-->
     <!--                     </div>-->
-                        <div class="form-group">
-                            <label>備考</label>
-                            <textarea class="form-control" id="reservation-description" rows="3"></textarea>
+                        <hr>
+                        <div class="row">
+                            <div class="form-group col-12">
+                                <label>備考</label>
+                                <textarea class="form-control" id="reservation-description" rows="3"></textarea>
+                            </div>
                         </div>
+
                         <button type="button" class="btn btn-primary" id="btn-reservation">送信する</button>
                     </form>
                 </div>
@@ -492,10 +498,17 @@
         <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
         <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
 
-        <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.24.0/moment.min.js" integrity="sha256-4iQZ6BVL4qNKlQ27TExEhBN1HFPvAvAMbFavKKosSWQ=" crossorigin="anonymous"></script>
+        <!-- pickadate.js -->
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/pickadate.js/3.6.4/compressed/picker.js" integrity="sha256-Ir/Txs2EGYQz5HcltQCu06WpUQRhmU4tgHHYbNV0+Cs=" crossorigin="anonymous"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/pickadate.js/3.6.4/compressed/picker.date.js" integrity="sha256-WpEr1Ovyxho8DRYP1DyZgjVonSAGF4uDVVZXoe379vw=" crossorigin="anonymous"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/pickadate.js/3.6.4/compressed/picker.time.js" integrity="sha256-bJ1e5Ijjt6P/NJvFu4MEFbFWAeXUQq1hq0Wwc1yEl4w=" crossorigin="anonymous"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/pickadate.js/3.6.4/compressed/legacy.js" integrity="sha256-GRynYEnSw2nk0OSq2+snjKepSc8+H35fJmMDYxevje4=" crossorigin="anonymous"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/pickadate.js/3.6.4/compressed/translations/ja_JP.js" integrity="sha256-OZ+3rqy70Z42APY1AMr8e8Or0ILywHUBLtFMm+oPeNE=" crossorigin="anonymous"></script>
 
+        <!-- material picker用CDN -->
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.24.0/moment.min.js" integrity="sha256-4iQZ6BVL4qNKlQ27TExEhBN1HFPvAvAMbFavKKosSWQ=" crossorigin="anonymous"></script>
         <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.20.1/locale/ja.js"></script>
-        <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-material-datetimepicker/2.7.1/js/bootstrap-material-datetimepicker.min.js"></script>
+<!--        <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-material-datetimepicker/2.7.1/js/bootstrap-material-datetimepicker.min.js"></script>-->
     <script>
           // ここにjQuery書く
           $(function(){
@@ -510,17 +523,29 @@
                 // $('.selectpicker').selectpicker('refresh');
 
 
+                //デートピッカー用スクリプト
+                $("#datepicker").pickadate();
+                //タイムピッカー用スクリプト
+                $("#timepicker").pickatime({
+                    format: 'HH:i', // 24時間表記
+                    interval: 15,   // 表示間隔
+                    min: [17,00],   // 予約開始時間
+                    max: [23,00]    // 予約終了時間
+                });
+
+
                 //datepickerの設定
                 // $.datepicker.setDefaults( $.datepicker.regional[ "ja" ] );
                 // $( "#reservation-time" ).datepicker();
 
-                $("#reservation-time").bootstrapMaterialDatePicker({
-                    weekStart:0,
-                    lang: 'ja',
-                    okText: '次へ',
-                    clearText: 'クリア',
-                    format:"YYYY-MM-DD HH:mm"
-                });
+                // material picker用script
+<!--                $("#reservation-time").bootstrapMaterialDatePicker({-->
+<!--                    weekStart:0,-->
+<!--                    lang: 'ja',-->
+<!--                    okText: '次へ',-->
+<!--                    clearText: 'クリア',-->
+<!--                    format:"YYYY-MM-DD HH:mm"-->
+<!--                });-->
 
 
 
@@ -613,14 +638,33 @@
                 $('#btn-reservation').on('click', function(){
                     let name = $('#reservation-name').val();
                     let address = $('#reservation-address').val();
-                    let time = $('#reservation-time').val();
                     let number = $('#reservation-number').val();
                     let description = $('#reservation-description').val();
 
-                    //コースメニューの内容が決定するまではコースの値は0にしておく
-                    let course = 0;
+                    // material-datepicker用の値取得処理
+                    //let time = $('#reservation-time').val();
 
+
+                    //コースメニューの内容が決定するまではコースの値は0にしておく
+                    //コースメニューは数値でDBに登録する
+                    let course = 0;
                     console.log('course: ', course);
+
+
+                    //datepickerとtimepickerの値を取得
+                    let datepick = $('#datepicker').val();
+                    console.log('datepick: ', datepick);
+
+                    let beforeDate = moment(datepick, 'YYYY年MM月DD日');
+                    let afterDate = beforeDate.format('YYYY-MM-DD')
+                    console.log('afterDate: ', afterDate);
+
+                    let timepick = $('#timepicker').val();
+                    console.log('timepick: ', timepick);
+
+                    let datetime = afterDate + ' ' + timepick;
+                    console.log('datetime: ', datetime);
+
 
                     $.ajax({
                         'type': 'POST',
@@ -628,7 +672,7 @@
                         data: {
                             'name': name,
                             'address': address,
-                            'time': time,
+                            'time': datetime,
                             'number': number,
                             'course': course,
                             'description': description
