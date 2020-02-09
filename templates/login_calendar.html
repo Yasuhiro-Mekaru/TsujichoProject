@@ -9,154 +9,162 @@
 
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
 
-<!--    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/fullcalendar/4.2.0/bootstrap/main.min.css" integrity="sha256-auNBxJ+1OpvUJfYRsPihqLzJFUM9D3gpb8nOh5v0LiM=" crossorigin="anonymous" />-->
+    <!-- fullcalendar4.3.1 -->
+<!--    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fullcalendar/core@4.3.1/main.min.css">-->
 
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fullcalendar/core@4.3.1/main.min.css">
+    <!-- fullcalendar4.2.0 -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/fullcalendar/4.2.0/bootstrap/main.min.css" integrity="sha256-auNBxJ+1OpvUJfYRsPihqLzJFUM9D3gpb8nOh5v0LiM=" crossorigin="anonymous" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/fullcalendar/4.2.0/core/main.min.css" integrity="sha256-Lfe6+s5LEek8iiZ31nXhcSez0nmOxP+3ssquHMR3Alo=" crossorigin="anonymous" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/fullcalendar/4.2.0/daygrid/main.min.css" integrity="sha256-AVsv7CEpB2Y1F7ZjQf0WI8SaEDCycSk4vnDRt0L2MNQ=" crossorigin="anonymous" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/fullcalendar/4.2.0/list/main.min.css" integrity="sha256-saO3mkZVAcyqsfgsGMrmE7Cs/TLN1RgVykZ5dnnJKug=" crossorigin="anonymous" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/fullcalendar/4.2.0/timegrid/main.min.css" integrity="sha256-DOWdbe6a1VwJwFpkimY6z5tW9mmrBNre2jZsAige5PE=" crossorigin="anonymous" />
 
     <style type='text/css'>
-
     </style>
 
 </head>
 
 <body style='padding-top:4.5rem;'>
-<nav class='navbar fixed-top navbar-expand-xl navbar-dark bg-info'>
-    <button class='navbar-toggler' type='button' data-toggle='collapse' data-target='#navbarNavDropdown' aria-controls='navbarNavDropdown' aria-expanded='false' aria-label='Toggle navigation'>
-        <span class='navbar-toggler-icon'></span>
-    </button>
-    <div class='collapse navbar-collapse' id='navbarNavDropdown'>
-        <ul class='navbar-nav mr-auto'>
-            <li class='nav-item actice'><a class='nav-link' href='../calendar'><i class='fas fa-layer-group fa-fw'></i>予定表</a></li>
-            <li class='nav-item'><a class='nav-link' href='../login'><i class="fas fa-seedling"></i>メニュー</a></li>
-        </ul>
-        <ul class='navbar-nav'>
-            <li class='nav-item'><a class='nav-link' href='../user'><i class='fas fa-user-cog fa-fw'></i>ユーザー設定</a></li>
-            <li class='nav-item'><a class='nav-link' href='../system'><i class='fas fa-cog fa-fw'></i>システム設定</a></li>
-        </ul>
-    </div>
-</nav>
+    <nav class='navbar fixed-top navbar-expand-xl navbar-dark bg-info'>
+        <button class='navbar-toggler' type='button' data-toggle='collapse' data-target='#navbarNavDropdown' aria-controls='navbarNavDropdown' aria-expanded='false' aria-label='Toggle navigation'>
+            <span class='navbar-toggler-icon'></span>
+        </button>
+        <div class='collapse navbar-collapse' id='navbarNavDropdown'>
+            <ul class='navbar-nav mr-auto'>
+                <li class='nav-item actice'><a class='nav-link' href='../calendar'><i class='fas fa-layer-group fa-fw'></i>予定表</a></li>
+                <li class='nav-item'><a class='nav-link' href='../login'><i class="fas fa-seedling"></i>メニュー</a></li>
+            </ul>
+            <ul class='navbar-nav'>
+                <li class='nav-item'><a class='nav-link' href='../user'><i class='fas fa-user-cog fa-fw'></i>ユーザー設定</a></li>
+                <li class='nav-item'><a class='nav-link' href='../system'><i class='fas fa-cog fa-fw'></i>システム設定</a></li>
+            </ul>
+        </div>
+    </nav>
 
 
-<!-- 情報表示用ダイアログ -->
-<div id='calendar'></div>
+    <div id='calendar'></div>
 
 
-<!-- jQuery first, then Popper.js, then Bootstrap JS -->
+    <!-- jQuery first, then Popper.js, then Bootstrap JS -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.24.0/moment.min.js" integrity="sha256-4iQZ6BVL4qNKlQ27TExEhBN1HFPvAvAMbFavKKosSWQ=" crossorigin="anonymous"></script>
 
-<script src="https://code.jquery.com/jquery-3.4.1.js" integrity="sha256-WpOohJOqMqqyKL9FccASB9O0KwACQJpFTUBLTYOVvVU=" crossorigin="anonymous"></script>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
-<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.4.1/jquery.min.js" integrity="sha256-CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSFlBw8HfCJo=" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
 
-<script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.24.0/moment.min.js" integrity="sha256-4iQZ6BVL4qNKlQ27TExEhBN1HFPvAvAMbFavKKosSWQ=" crossorigin="anonymous"></script>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/fullcalendar/3.9.0/fullcalendar.min.js"></script>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/fullcalendar-scheduler/1.9.4/scheduler.min.js"></script>
+<!--    <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.24.0/moment.min.js" integrity="sha256-4iQZ6BVL4qNKlQ27TExEhBN1HFPvAvAMbFavKKosSWQ=" crossorigin="anonymous"></script>-->
+
+    <!-- fullcalendar3.9.0 -->
+<!--    <script src="https://cdnjs.cloudflare.com/ajax/libs/fullcalendar/3.9.0/fullcalendar.min.js"></script>-->
+<!--    <script src="https://cdnjs.cloudflare.com/ajax/libs/fullcalendar-scheduler/1.9.4/scheduler.min.js"></script>-->
+
+    <!-- fullcalendar4.2.0 -->
+<!--    <script src="https://cdnjs.cloudflare.com/ajax/libs/fullcalendar/4.2.0/bootstrap/main.min.js" integrity="sha256-7ZOfggrgAdwfWGQAdm659B99D8KDYYNtA/mHYhsPwwg=" crossorigin="anonymous"></script>-->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/fullcalendar/4.2.0/core/main.min.js" integrity="sha256-GBryZPfVv8G3K1Lu2QwcqQXAO4Szv4xlY4B/ftvyoMI=" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/fullcalendar/4.2.0/daygrid/main.min.js" integrity="sha256-FT1eN+60LmWX0J8P25UuTjEEE0ZYvpC07nnU6oFKFuI=" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/fullcalendar/4.2.0/interaction/main.min.js" integrity="sha256-MUHmW5oHmLLsvmMWBO8gVtKYrjVwUSFau6pRXu8dtnA=" crossorigin="anonymous"></script>
+<!--    <script src="https://cdnjs.cloudflare.com/ajax/libs/fullcalendar/4.2.0/list/main.min.js" integrity="sha256-q57s73NpMCTQ4ZXqb1X5bIywrICySeB6WvYxFGfz/PA=" crossorigin="anonymous"></script>-->
+<!--    <script src="https://cdnjs.cloudflare.com/ajax/libs/fullcalendar/4.2.0/moment/main.min.js" integrity="sha256-iCYfw93enxd8O5zz/jL4UamQ8bgrUfidO4C5500RSd4=" crossorigin="anonymous"></script>-->
+<!--    <script src="https://cdnjs.cloudflare.com/ajax/libs/fullcalendar/4.2.0/moment-timezone/main.min.js" integrity="sha256-dKFu7AO+UtXuSvj3RwvCOovdKT3ScgGqzOcZ77QNwbg=" crossorigin="anonymous"></script>-->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/fullcalendar/4.2.0/timegrid/main.min.js" integrity="sha256-L9T+qE3Ms6Rsuxl+KwLST6a3R/2o6m33zB5mR2KyPjU=" crossorigin="anonymous"></script>
+<!--    <script src="https://cdnjs.cloudflare.com/ajax/libs/fullcalendar/4.2.0/rrule/main.min.js" integrity="sha256-u7P2JiEIVAqbiKE2H/Jp2nKdADjmxJ12U3suvRV/tAE=" crossorigin="anonymous"></script>-->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/fullcalendar/4.2.0/core/locales/ja.js" integrity="sha256-7q2C8I66JZ/SZxnnrrrFgf4/bJSEjHjGmYXjuAHXyVg=" crossorigin="anonymous"></script>
 
 
-<script>
-    $(function(){
-		let today = moment().format('YYYY-MM-DD HH:mm');
-        console.log('today: ', today);
+    <script>
 
-        let table = 'reservation';
+        document.addEventListener('DOMContentLoaded', function() {
+            console.log('DOMContentLoaded');
 
-        //DBから予約データを取得する処理
-        $.ajax({
-            'type': 'GET',
-            'url': 'http://127.0.0.1:5000/get_db',
-            'data': {
-                'table': table
-            }
-        }).then(function(response){
-            console.log('ajax response: ', response);
+            let today = moment().format('YYYY-MM-DD HH:mm');
+            console.log('today: ', today);
 
-            let datas = [];
-            for(let i=0; i<response.data.length; i++){
-                let data = {};
-                moment.defaultFormat = 'YYYY-MM-DD HH:mm';
-                data['id'] = response.data[i][0];
-                data['title'] = response.data[i][1];
+            $(function(){
+                let table = 'reservation';
 
-                let startTime = moment(response.data[i][3]);
-                data['start'] = startTime;
+                //DBから予約データを取得する処理
+                $.ajax({
+                    'type': 'GET',
+                    'url': 'http://127.0.0.1:5000/get_db',
+                    'data': {
+                        'table': table
+                    }
+                }).then(function(response){
+                    console.log('ajax response: ', response);
 
-                let endTime = startTime.clone();
-                endTime.add(3, 'hours');
-                data['end'] = endTime;
+                    //calendarのevent
+                    let datas = [];
+                    for(let i=0; i<response.data.length; i++){
+                        let data = {};
+                        moment.defaultFormat = 'YYYY-MM-DDTHH:mm';
+                        data['id'] = response.data[i][0];
+                        data['title'] = response.data[i][1];
+                        data['color'] = 'yellow';
 
-                datas.push(data);
-            }
-            console.log('ajax datas: ', datas);
+                        let startTime = response.data[i][3];
+                        data['start'] = startTime;
+                        console.log('start time: ', startTime);
 
-            $('#calendar').fullCalendar({
-                schedulerLicenseKey: 'GPL-My-Project-Is-Open-Source',
-                resourceAreaWidth: '100%',
-                defaultDate: today,
-                //defaultView: 'timelineDay',
-                editable: true,
-                allDaySlot: true,
-                slotEventOverlap: false,
-                eventDurationEditable: false,
-                droppable: true,
-                selectable: true,
-                selectHelper: true,
-                select: function(start, end, allDay){
-                    console.log('fullcalendar select start: ', start);
-                    console.log('fullcalendar select end: ', end);
-                    console.log('fullcalendar select allDay: ', allDay);
-                    alert('select Clicked!');
-                },
-                eventClick: function(calEvent, jsEvent, view){
-                    console.log('fullcalendar eventClick calEvent: ', calEvent);
-                    console.log('fullcalendar eventClick jsEvent: ', jsEvent);
-                    console.log('fullcalendar eventClick view: ', view);
-                    alert('event Clicked!');
-                },
-                header: {
-                    left: 'prev,next today',
-                    center: 'title',
-                    right: 'dayGridMonth,timeGridWeek,timeGridDay'
-                },
-                events: datas,
-<!--                events: [{-->
-<!--                        id: '1',-->
-<!--                        resourceId: 'a',-->
-<!--                        start: '2019-12-2',-->
-<!--                        end: '2019-12-5',-->
-<!--                        title: '耕転'-->
-<!--                    },{-->
-<!--                        id: '2',-->
+                        let endTime = moment(startTime);
+                        let end = endTime.add(3, 'hours').format();
+                        data['end'] = end;
+                        console.log('end time: ', end);
 
-<!--                        start: '2019-12-7',-->
-<!--                        end: '2019-12-10',-->
-<!--                        title: '種まき'-->
-<!--                    }-->
-<!--                ],-->
+                        datas.push(data);
+                    }
+                    console.log('ajax datas: ', datas);
 
-<!--            Views: {-->
-<!--                    timelineThreeDays: {-->
-<!--                        type: 'timeline',-->
-<!--                        duration: {-->
-<!--                            days: 3-->
-<!--                        }-->
-<!--                    }-->
-<!--            },-->
-<!--            resourceLabelText: 'Farms',-->
-<!--            resources: [{-->
-<!--                    id: 'a',-->
-<!--                    title: 'okura'-->
-<!--                },-->
-<!--                {-->
-<!--                    id: 'b',-->
-<!--                    title: 'speamint'-->
-<!--                }],-->
+                    var calendarEl = document.getElementById('calendar');
+                    console.log('calendarEl created.');
+                    var calendar = new FullCalendar.Calendar(calendarEl, {
+                          plugins: [ 'interaction', 'dayGrid', 'timeGrid' ],
+                          header: {
+                            left: 'prev,next today',
+                            center: 'title',
+                            right: 'dayGridMonth,timeGridWeek,timeGridDay'
+                          },
+                          locale: 'ja',
+                          defaultDate: today,
+                          businessHours: {
+                              daysOfWeek: [1, 2, 3, 4, 5, 6],
+                              startTime: '17:00',
+                              endTime: '24:00'
+                          },
+                          navLinks: true, // can click day/week names to navigate views
+                          //日付をクリックした際のalert処理
+                          selectable: true,
+                          selectMirror: true,
+                          select: function(arg) {
+                              var title = prompt('Event Title:');
+                              if (title) {
+                                  calendar.addEvent({
+                                      title: title,
+                                      start: arg.start,
+                                      end: arg.end,
+                                      allDay: arg.allDay
+                                  })
+                              }
+                              calendar.unselect()
+                          },
+                          editable: true,
+                          eventLimit: true, // allow "more" link when too many events
+                          eventTimeFormat: { hour: 'numeric', minute: '2-digit' },
+                          //イベントをクリックした際の処理
+                          eventClick: function(info){
+                              console.log('info: ', info);
+                              console.log('info event: ', info.event);
+                              console.log('info event title: ', info.event.title);
+                              console.log('info event start: ', info.event.start);
+                              console.log('info event end: ', info.event.end);
+                          },
+                          events: datas
+                    });
+                    calendar.render();
+                }, function(error){
+                    console.log('ajax error: ', error);
+                });
             });
-
-        }, function(error){
-            console.log('ajax error: ', error);
         });
-
-
-    });
-</script>
+    </script>
 </body>
 </html>

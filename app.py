@@ -12,7 +12,6 @@ logger = logging.getLogger(__name__)
 
 app = Flask(__name__)
 
-
 """
 デフォルトルート
 """
@@ -148,8 +147,8 @@ def post_request():
         })
         res = db.Db.post_seat(language, seats)
 
-    #menuModalを呼び出す処理
-    elif(data['section'] == 2):
+    # menuModalを呼び出す処理
+    elif data['section'] == 2:
         language = data['languageId']
         category = data['category']
         types = data['type']
@@ -269,8 +268,6 @@ def delete_menu_data():
     })
 
     return responseData
-
-
 
 
 if __name__ == '__main__':

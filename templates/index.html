@@ -525,6 +525,7 @@
 
                 //デートピッカー用スクリプト
                 $("#datepicker").pickadate();
+
                 //タイムピッカー用スクリプト
                 $("#timepicker").pickatime({
                     format: 'HH:i', // 24時間表記
@@ -532,21 +533,6 @@
                     min: [17,00],   // 予約開始時間
                     max: [23,00]    // 予約終了時間
                 });
-
-
-                //datepickerの設定
-                // $.datepicker.setDefaults( $.datepicker.regional[ "ja" ] );
-                // $( "#reservation-time" ).datepicker();
-
-                // material picker用script
-<!--                $("#reservation-time").bootstrapMaterialDatePicker({-->
-<!--                    weekStart:0,-->
-<!--                    lang: 'ja',-->
-<!--                    okText: '次へ',-->
-<!--                    clearText: 'クリア',-->
-<!--                    format:"YYYY-MM-DD HH:mm"-->
-<!--                });-->
-
 
 
                 // layout sectionのdropボタン押下の処理
@@ -571,7 +557,8 @@
                     $.ajax({
                         'type': 'POST',
                         'contentType': 'application/json',
-                        'url': 'http://127.0.0.1:5000/post_db',
+                        // 'url': 'http://127.0.0.1:5000/post_db', //local用 ルーティング先のurlをフルパスで記述
+                        'url': 'https://tsujicho.herokuapp.com/post_db', //herokuにアップした際に使用予定
                         'data': data,
                     }).then(function(response){
                         console.log('ajax response: ', response);
@@ -610,7 +597,8 @@
                     $.ajax({
                         'type': 'POST',
                         'contentType': 'application/json',
-                        'url': 'http://127.0.0.1:5000/post_db',
+                        // 'url': 'http://127.0.0.1:5000/post_db', //local用 ルーティング先のurlをフルパスで記述
+                        'url': 'https://tsujicho.herokuapp.com/post_db', //herokuにアップした際に使用予定
                         'data': data,
                     }).then(function(response){
                         console.log('ajax response: ', response);
@@ -668,7 +656,8 @@
 
                     $.ajax({
                         'type': 'POST',
-                        'url': 'http://127.0.0.1:5000/reservation',
+                        // 'url': 'http://127.0.0.1:5000/reservation', //local用 ルーティング先のurlをフルパスで記述
+                        'url': 'https://tsujicho.herokuapp.com/reservation', //herokuにアップした際に使用予定
                         data: {
                             'name': name,
                             'address': address,

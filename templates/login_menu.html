@@ -245,7 +245,8 @@
 					console.log('削除ボタン押下イベント dataRow[0]: ', dataRow[0]);
 					$.ajax({
 						'type': 'DELETE',
-						'url': 'http://127.0.0.1:5000/delete_menu',
+						// 'url': 'http://127.0.0.1:5000/delete_menu', //local用 ルーティング先のurlをフルパスで記述
+						'url': 'https://tsujicho.herokuapp.com/delete_menu', //herokuにアップした際に使用予定
 						'data': {'id': dataRow[0]}
 					}).then(function(response){
 							console.log('削除ボタン押下イベント response: ', response);
@@ -339,7 +340,8 @@
 					$.ajax({
 						'type': 'PUT',
 						'contentType': 'application/json',
-						'url': 'http://127.0.0.1:5000/save_menu',
+						// 'url': 'http://127.0.0.1:5000/save_menu', //local用 ルーティング先のurlをフルパスで記述
+						'url': 'https://tsujicho.herokuapp.com/save_menu', //herokuにアップした際に使用予定
 						'data': data
 					}).then(function(response){
 						console.log('編集ウィンドウの保存ボタンイベント if response: ', response);
@@ -360,7 +362,8 @@
 					$.ajax({
 						'type': 'POST',
 						'contentType': 'application/json',
-						'url': 'http://127.0.0.1:5000/save_menu',
+						// 'url': 'http://127.0.0.1:5000/save_menu', //local用 ルーティング先のurlをフルパスで記述
+						'url': 'https://tsujicho.herokuapp.com/save_menu', //herokuにアップした際に使用予定
 						'data': data
 					}).then(function(response){
 						console.log('編集ウィンドウの保存ボタンイベント else response: ', response);
@@ -386,7 +389,8 @@
             function getData(){
 			    $.ajax({
 					'type': 'GET',
-					'url': 'http://127.0.0.1:5000/get_db',
+					// 'url': 'http://127.0.0.1:5000/get_db', //local用 ルーティング先のurlをフルパスで記述
+					'url': 'https://tsujicho.herokuapp.com/get_db', //herokuにアップした際に使用予定
 					'data': {
 					    'table': table
 					}
