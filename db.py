@@ -4,12 +4,10 @@ import logging
 logging.basicConfig(level=logging.INFO)
 logger = logging.getLogger(__name__)
 
-# DB_HOST = "us-cdbr-iron-east-04.cleardb.net"
-DB_HOST = "us-cdbr-iron-east-04"
+DB_HOST = "us-cdbr-iron-east-04.cleardb.net"
 DB_USERNAME = "b00f214264a795"
 DB_PASSWORD = "9e5c725"
-# DB_DATABASE = "heroku_60fc588795e8645"
-DB_DATABASE = "60fc588795e8645"
+DB_DATABASE = "heroku_60fc588795e8645"
 
 
 class Db(object):
@@ -24,7 +22,8 @@ class Db(object):
             'seats': seats
         })
         # conn = mysql.connector.connect(host='localhost', user='root', use_pure=True,database='tsujicho_db')
-        conn = mysql.connector.connect(host=DB_HOST, user=DB_USERNAME, password=DB_PASSWORD , use_pure=True, database=DB_DATABASE)
+        # conn = mysql.connector.connect(host=DB_HOST, user=DB_USERNAME, password=DB_PASSWORD , use_pure=True, database=DB_DATABASE)
+        conn = mysql.connector.connect(host=DB_HOST, user=DB_USERNAME, password=DB_PASSWORD, database=DB_DATABASE)
         cursol = conn.cursor()
         logger.info({
             'action': 'get_db',
@@ -69,7 +68,8 @@ class Db(object):
             'type': types
         })
         # conn = mysql.connector.connect(host='localhost', user='root', use_pure=True, database='tsujicho_db')
-        conn = mysql.connector.connect(host=DB_HOST, user=DB_USERNAME, password=DB_PASSWORD , use_pure=True, database=DB_DATABASE)
+        # conn = mysql.connector.connect(host=DB_HOST, user=DB_USERNAME, password=DB_PASSWORD , use_pure=True, database=DB_DATABASE)
+        conn = mysql.connector.connect(host=DB_HOST, user=DB_USERNAME, password=DB_PASSWORD, database=DB_DATABASE)
         cursol = conn.cursor()
         logger.info({
             'action': 'get_db',
@@ -108,7 +108,8 @@ class Db(object):
             'data': table
         })
         # conn = mysql.connector.connect(host='localhost', user='root', use_pure=True, database='tsujicho_db')
-        conn = mysql.connector.connect(host=DB_HOST, user=DB_USERNAME, password=DB_PASSWORD , use_pure=True, database=DB_DATABASE)
+        # conn = mysql.connector.connect(host=DB_HOST, user=DB_USERNAME, password=DB_PASSWORD , use_pure=True, database=DB_DATABASE)
+        conn = mysql.connector.connect(host=DB_HOST, user=DB_USERNAME, password=DB_PASSWORD, database=DB_DATABASE)
         cursol = conn.cursor()
         logger.info({
             'action': 'get_all_menu',
@@ -162,7 +163,8 @@ class Db(object):
         src = data['src']
 
         # conn = mysql.connector.connect(host='localhost', user='root', use_pure=True, database='tsujicho_db')
-        conn = mysql.connector.connect(host=DB_HOST, user=DB_USERNAME, password=DB_PASSWORD , use_pure=True, database=DB_DATABASE)
+        # conn = mysql.connector.connect(host=DB_HOST, user=DB_USERNAME, password=DB_PASSWORD , use_pure=True, database=DB_DATABASE)
+        conn = mysql.connector.connect(host=DB_HOST, user=DB_USERNAME, password=DB_PASSWORD, database=DB_DATABASE)
         cursol = conn.cursor()
         logger.info({
             'action': 'put_menu_data mysql',
@@ -204,7 +206,8 @@ class Db(object):
         src = data['src']
 
         # conn = mysql.connector.connect(host='localhost', user='root', use_pure=True, database='tsujicho_db')
-        conn = mysql.connector.connect(host=DB_HOST, user=DB_USERNAME, password=DB_PASSWORD , use_pure=True, database=DB_DATABASE)
+        # conn = mysql.connector.connect(host=DB_HOST, user=DB_USERNAME, password=DB_PASSWORD , use_pure=True, database=DB_DATABASE)
+        conn = mysql.connector.connect(host=DB_HOST, user=DB_USERNAME, password=DB_PASSWORD, database=DB_DATABASE)
         cursol = conn.cursor()
         logger.info({
             'action': 'post_menu_data mysql',
@@ -237,7 +240,8 @@ class Db(object):
         })
         id = data
         # conn = mysql.connector.connect(host='localhost', user='root', use_pure=True, database='tsujicho_db')
-        conn = mysql.connector.connect(host=DB_HOST, user=DB_USERNAME, password=DB_PASSWORD , use_pure=True, database=DB_DATABASE)
+        # conn = mysql.connector.connect(host=DB_HOST, user=DB_USERNAME, password=DB_PASSWORD , use_pure=True, database=DB_DATABASE)
+        conn = mysql.connector.connect(host=DB_HOST, user=DB_USERNAME, password=DB_PASSWORD, database=DB_DATABASE)
         cursol = conn.cursor()
         logger.info({
             'action': 'put_menu_data mysql',
@@ -276,7 +280,8 @@ class Db(object):
         description = data['description']
 
         # conn = mysql.connector.connect(host='localhost', user='root', use_pure=True, database='tsujicho_db')
-        conn = mysql.connector.connect(host=DB_HOST, user=DB_USERNAME, password=DB_PASSWORD , use_pure=True, database=DB_DATABASE)
+        # conn = mysql.connector.connect(host=DB_HOST, user=DB_USERNAME, password=DB_PASSWORD , use_pure=True, database=DB_DATABASE)
+        conn = mysql.connector.connect(host=DB_HOST, user=DB_USERNAME, password=DB_PASSWORD, database=DB_DATABASE)
         cursol = conn.cursor()
         logger.info({
             'action': 'post_reservation',
