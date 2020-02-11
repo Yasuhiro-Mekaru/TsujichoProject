@@ -85,7 +85,8 @@
                 //DBから予約データを取得する処理
                 $.ajax({
                     'type': 'GET',
-                    'url': 'http://127.0.0.1:5000/get_db',
+                    // 'url': 'http://127.0.0.1:5000/get_db', //local用 ルーティング先のurlをフルパスで記述
+                    'url': 'https://tsujicho.herokuapp.com/get_db', //herokuにアップした際に使用予定
                     'data': {
                         'table': table
                     }
