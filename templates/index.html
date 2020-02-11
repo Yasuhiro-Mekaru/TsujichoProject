@@ -602,6 +602,8 @@
                         'data': data,
                     }).then(function(response){
                         console.log('ajax response: ', response);
+                        console.log('ajax response name: ', response.data[0][0]);
+                        console.log('ajax response description: ', response.data[0][1]);
                         console.log('ajax response typeof: ', typeof response);
 
                         $('#menu-img1').attr('src', response.data[0][2]);
