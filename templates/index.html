@@ -34,36 +34,55 @@
             background-color: #ffffff;
         }
         h1, h2, h3, h4 {
-            font-family: "kokoro";
+            font-family: "";
         }
         #navigation-container {
             background-color: #ffffff;
         }
         #menu-container {
             background-color: #ffffff;
+
         }
         #menu-container h2 {
-            border: 1px solid red;
             padding-top: 5%;
-            padding-bottom: 5%;
+            padding-bottom: 3%;
             margin-top: 5%;
-            margin-bottom: 5%;
+            margin-bottom: 2%;
         }
         .card {
-            border: 1px solid black;
+            border: 1px solid #d3d3d3;
             padding: 5%;
         }
         .card-body {
             background-color: #ffffff;
         }
+        .card-text {
+            padding-top: 5%;
+            padding-bottom: 5%;
+            margin-top: 20%;
+            margin-bottom: 5%;
+        }
         #layout-container {
             background-color: #ffffff;
+            border: 1px solid black;
+        }
+        #layout-container h2 {
+            padding-top: 5%;
+            padding-bottom: 3%;
+            margin-top: 5%;
+            margin-bottom: 2%;
         }
         #layout-reserved {
             text-align: left;
         }
         #info-container {
             background-color: #ffffff;
+        }
+        #info-container h2 {
+            padding-top: 5%;
+            padding-bottom: 3%;
+            margin-top: 5%;
+            margin-bottom: 2%;
         }
         img {
             max-width: 100%;
@@ -155,12 +174,12 @@
                         <img class="card-img-top" src="/static/img/img_menu/drinks/all-drinks.jpg" alt="drink">
                         <div class="card-body">
                             <h2 class="card-title font-weight-bold">ドリンク</h2>
-                            <ul>
-                                <li>ビール</li>
-                                <li>カクテル・ハイボール</li>
-                                <li>チューハイ</li>
-                                <li>泡盛・焼酎</li>
-                                <li>ソフトドリンク</li>
+                            <ul class="list-group">
+                                <li class="list-group-item">ビール</li>
+                                <li class="list-group-item">カクテル・ハイボール</li>
+                                <li class="list-group-item">チューハイ</li>
+                                <li class="list-group-item">泡盛・焼酎</li>
+                                <li class="list-group-item">ソフトドリンク</li>
                             </ul>
                             <p class="card-text">上記以外にも各種取り揃えております。</p>
                         </div>
@@ -169,12 +188,12 @@
                         <img class="card-img-top" src="/static/img/img_menu/foods/kushi_2/kushi14_2.jpg" alt="food">
                         <div class="card-body">
                             <h2 class="card-title font-weight-bold">フード</h2>
-                            <ul>
-                                <li><a data-toggle="modal" href="#modal-food" data-category="2" data-type="1">うちなー料理</a></li>
-                                <li><a data-toggle="modal" href="#modal-food" data-category="2" data-type="2">串焼き</a></li>
-                                <li><a data-toggle="modal" href="#modal-food" data-category="2" data-type="3">焼き・揚げ・炒め物</a></li>
-                                <li><a data-toggle="modal" href="#modal-food" data-category="2" data-type="4">麺・ご飯物</a></li>
-                                <li><a data-toggle="modal" href="#modal-food" data-category="2" data-type="5">サラダ・小鉢</a></li>
+                            <ul class="list-group">
+                                <li class="list-group-item"><a data-toggle="modal" href="#modal-food" data-category="2" data-type="1">うちなー料理</a></li>
+                                <li class="list-group-item"><a data-toggle="modal" href="#modal-food" data-category="2" data-type="2">串焼き</a></li>
+                                <li class="list-group-item"><a data-toggle="modal" href="#modal-food" data-category="2" data-type="3">焼き・揚げ・炒め物</a></li>
+                                <li class="list-group-item"><a data-toggle="modal" href="#modal-food" data-category="2" data-type="4">麺・ご飯物</a></li>
+                                <li class="list-group-item"><a data-toggle="modal" href="#modal-food" data-category="2" data-type="5">サラダ・小鉢</a></li>
                             </ul>
                             <p class="card-text">上記以外にも各種取り揃えております。</p>
                         </div>
@@ -237,7 +256,7 @@
         <div class="container" id="layout-container">
             <div class="row">
                 <div class="col-12">
-                    <h1 class="font-weight-bold">お座席タイプ</h1>
+                    <h2 class="font-weight-bold">お座席タイプ</h2>
                 </div>
             </div>
             <div>
@@ -284,7 +303,7 @@
         <div class="container" id="info-container">
             <div class="row">
                 <div class="col-12">
-                    <h1 class="font-weight-bold">お店の情報</h1>
+                    <h2 class="font-weight-bold">お店の情報</h2>
                 </div>
             </div>
             <div class="row">
