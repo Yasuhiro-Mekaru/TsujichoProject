@@ -26,18 +26,24 @@
 
     <style>
         @font-face {
-            font-family: "kokoro";
+            font-family: Meiryo;
             src: "/static/css/kokoro/kokoro.otf";
         }
         body {
             text-align: center;
             background-color: #ffffff;
+            font-family: "kokoro";
         }
         h1, h2, h3, h4 {
             font-family: "";
         }
         #navigation-container {
             background-color: #ffffff;
+            opacity: 1.0;
+        }
+        #navigation-container a {
+            opacity: 1.0;
+            color: black;
         }
         #header-container h1 {
             background-color: #ffd700;
@@ -77,6 +83,10 @@
             padding-bottom: 3%;
             margin-top: 5%;
             margin-bottom: 2%;
+        }
+        #layout-container h5 {
+            padding-top: 5%;
+            padding-bottom: 3%;
         }
         #layout-reserved {
             text-align: left;
@@ -136,7 +146,7 @@
     <!-- Header Section -->
     <div id="header" class="mt-5 mb-5 pt-2 pb-2">
         <div id="header-container" class="container">
-            <h2 class="display-3 font-weight-bold mb-3 mb-5">地元の人が集うお店！</h2>
+            <h3 class="display-3 font-weight-bold mb-3 mb-5">地元の人が集うお店！</h3>
             <h1 class="display-4 font-weight-bold mt-5 mb-5"><small>大衆酒場</small>Tsujicho</h1>
         </div>
 
@@ -275,7 +285,7 @@
                 <div class="card">
                     <img class="card-img-top" src="/static/img/img_layout/table1.jpg" alt="カウンター">
                     <div class="card-body">
-                      <h4 class="card-title">カウンター</h4>
+                      <h5 class="card-title">カウンター</h5>
                       <p class="card-text">1〜3名様にオススメです</p>
                     </div>
                 </div>
