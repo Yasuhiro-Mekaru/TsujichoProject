@@ -186,7 +186,10 @@ def get_request():
         'status': 'run',
     })
     print("get/db run")
-    table = request.values['table']
+    if request.method == 'POST':
+        table = request.get_json()
+    else:
+        table = request.values['table']
     logger.info({
         'action': 'get_request',
         'table': table
