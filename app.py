@@ -179,7 +179,7 @@ def post_request():
 """
 initのgetDataで全メニューデータを取得する処理
 """
-@app.route('/get_db', methods=['GET'])
+@app.route('/get_db', methods=['GET', 'POST'])
 def get_request():
     logger.info({
         'action': 'get_request',
