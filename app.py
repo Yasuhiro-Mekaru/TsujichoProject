@@ -185,6 +185,7 @@ def get_request():
         'action': 'get_request',
         'status': 'run',
     })
+    print("get/db run")
     table = request.values['table']
     logger.info({
         'action': 'get_request',
