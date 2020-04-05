@@ -189,8 +189,10 @@ def get_request():
     print("get/db run")
     if request.method == 'POST':
         json_data = request.get_json()
+        print('#################')
         print('json_data: {}'.format(json_data))
-        print('json_data type: '.format(type(json_data)))
+        print(type(json_data))
+        print('#################')
         # json_parse_data = json.load(json_data)
         # print('json_parse_data: {}'.format(json_parse_data))
         # table = json_parse_data['data']['table']
