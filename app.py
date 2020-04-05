@@ -3,6 +3,7 @@ from flask import render_template, redirect, url_for
 from flask import request
 from flask import jsonify
 
+import json
 import logging
 
 import db
@@ -187,7 +188,12 @@ def get_request():
     })
     print("get/db run")
     if request.method == 'POST':
-        table = request.get_json()
+        json_data = request.get_json()
+        print('json_data: {}'.format(json_data))
+        json_parse_data = json.load(json_data)
+        print('json_parse_data: {}'.format(json_parse_data))
+        table = json_parse_data['data']['table']
+        print('table: {}'.format(table))
     else:
         table = request.values['table']
     logger.info({
