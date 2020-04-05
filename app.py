@@ -192,6 +192,11 @@ def get_request():
         print('#################')
         print('json_data: {}'.format(json_data))
         print(type(json_data))
+        json_value_data = json_data['data']
+        print('json_value_data: {}'.format(json_value_data))
+        print(type(json_value_data))
+        table = json_value_data['table']
+        print('table: {}'.format(table))
         print('#################')
         # json_parse_data = json.load(json_data)
         # print('json_parse_data: {}'.format(json_parse_data))
