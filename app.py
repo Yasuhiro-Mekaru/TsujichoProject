@@ -190,10 +190,11 @@ def get_request():
     if request.method == 'POST':
         json_data = request.get_json()
         print('json_data: {}'.format(json_data))
-        json_parse_data = json.load(json_data)
-        print('json_parse_data: {}'.format(json_parse_data))
-        table = json_parse_data['data']['table']
-        print('table: {}'.format(table))
+        print('json_data type: '.format(type(json_data)))
+        # json_parse_data = json.load(json_data)
+        # print('json_parse_data: {}'.format(json_parse_data))
+        # table = json_parse_data['data']['table']
+        # print('table: {}'.format(table))
     else:
         table = request.values['table']
     logger.info({
