@@ -12,6 +12,7 @@ logging.basicConfig(level=logging.INFO)
 logger = logging.getLogger(__name__)
 
 app = Flask(__name__)
+app.config['JSON_AS_ASCII'] = False
 
 """
 デフォルトルート
@@ -198,27 +199,39 @@ def get_request():
         table = json_value_data['table']
         print('table: {}'.format(table))
         print('#################')
-        # json_parse_data = json.load(json_data)
-        # print('json_parse_data: {}'.format(json_parse_data))
-        # table = json_parse_data['data']['table']
-        # print('table: {}'.format(table))
+
+        logger.info({
+            'action': 'get_request',
+            'table': table
+        })
+        res = db.Db.get_all_menu(table)
+        responseData = {
+            'data': res
+        }
+        logger.info({
+            'action': 'get_request',
+            'response': responseData,
+            'response type': type(responseData)
+        })
+
+        return jsonify(responseData)
     else:
         table = request.values['table']
-    logger.info({
-        'action': 'get_request',
-        'table': table
-    })
-    res = db.Db.get_all_menu(table)
-    responseData = {
-        'data': res
-    }
-    logger.info({
-        'action': 'get_request',
-        'response': responseData,
-        'response type': type(responseData)
-    })
+        logger.info({
+            'action': 'get_request',
+            'table': table
+        })
+        res = db.Db.get_all_menu(table)
+        responseData = {
+            'data': res
+        }
+        logger.info({
+            'action': 'get_request',
+            'response': responseData,
+            'response type': type(responseData)
+        })
 
-    return responseData
+        return responseData
 
 
 
