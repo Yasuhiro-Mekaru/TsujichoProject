@@ -130,11 +130,24 @@ class Db(object):
             elif id != 0:
                 cursol.execute('SELECT category, type, name, price, description FROM {} WHERE languageID={}'.format(table, id))
                 for row in cursol:
+                    menu_data = {}
                     logger.info({
                         'action': 'get_db for elif',
                         'data': row
                     })
-                    datas.append(row)
+                    menu_category = row[0]
+                    menu_type = row[1]
+                    menu_name = row[2]
+                    menu_price = row[3]
+                    menu_description = row[4]
+
+                    menu_data['category'] = menu_category
+                    menu_data['type'] = menu_type
+                    menu_data['name'] = menu_name
+                    menu_data['price'] = menu_price
+                    menu_data['description'] = menu_description
+
+                    datas.append(menu_data)
         else:
             cursol.execute('SELECT * FROM {}'.format(table))
             for row in cursol:
