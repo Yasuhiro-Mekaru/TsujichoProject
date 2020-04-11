@@ -102,10 +102,11 @@ class Db(object):
     DBの全データを取得する処理
     第一引数はDBのTable名
     """
-    def get_all_menu(table):
+    def get_all_menu(table, id=0):
         logger.info({
             'action': 'get_all_menu',
-            'data': table
+            'data': table,
+            'id': id
         })
         # conn = mysql.connector.connect(host='localhost', user='root', use_pure=True, database='tsujicho_db')
         # conn = mysql.connector.connect(host=DB_HOST, user=DB_USERNAME, password=DB_PASSWORD , use_pure=True, database=DB_DATABASE)
@@ -113,17 +114,27 @@ class Db(object):
         cursol = conn.cursor()
         logger.info({
             'action': 'get_all_menu',
-            'cursol': 'run'
+            'cursol': 'run',
+            'id': id
         })
         datas = []
         if table:
-            cursol.execute('SELECT * FROM {}'.format(table))
-            for row in cursol:
-                logger.info({
-                    'action': 'get_db for if',
-                    'data': row
-                })
-                datas.append(row)
+            if id == 0:
+                cursol.execute('SELECT * FROM {}'.format(table))
+                for row in cursol:
+                    logger.info({
+                        'action': 'get_db for if',
+                        'data': row
+                    })
+                    datas.append(row)
+            elif id != 0:
+                cursol.execute('SELECT category, type, name, price, description FROM {} WHERE languageID={}'.format(id, table))
+                for row in cursol:
+                    logger.info({
+                        'action': 'get_db for elif',
+                        'data': row
+                    })
+                    datas.append(row)
         else:
             cursol.execute('SELECT * FROM {}'.format(table))
             for row in cursol:

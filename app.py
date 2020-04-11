@@ -198,13 +198,15 @@ def get_request():
         print(type(json_value_data))
         table = json_value_data['table']
         print('table: {}'.format(table))
+        ##languageIdの値を取り出す処理
         print('#################')
 
         logger.info({
             'action': 'get_request',
             'table': table
         })
-        res = db.Db.get_all_menu(table)
+        id = 1
+        res = db.Db.get_all_menu(table, id)
         responseData = {
             'data': res
         }
