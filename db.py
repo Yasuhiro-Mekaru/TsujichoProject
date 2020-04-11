@@ -128,7 +128,7 @@ class Db(object):
                     })
                     datas.append(row)
             elif id != 0:
-                cursol.execute('SELECT category, type, name, price, description FROM {} WHERE languageID={}'.format(id, table))
+                cursol.execute('SELECT category, type, name, price, description FROM {} WHERE languageID={}'.format(table, id))
                 for row in cursol:
                     logger.info({
                         'action': 'get_db for elif',
