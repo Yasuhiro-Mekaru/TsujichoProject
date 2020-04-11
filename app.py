@@ -184,10 +184,10 @@ initのgetDataで全メニューデータを取得する処理
 @app.route('/get_db', methods=['GET', 'POST'])
 def get_request():
     logger.info({
-        'action': 'get_request',
+        'action': '/get_db',
         'status': 'run',
     })
-    print("get/db run")
+
     if request.method == 'POST':
         json_data = request.get_json()
         print('#################')
@@ -199,13 +199,17 @@ def get_request():
         table = json_value_data['table']
         print('table: {}'.format(table))
         ##languageIdの値を取り出す処理
+        id = json_value_data['id']
+        print('id: {}'.format(id))
+        print(type(id))
         print('#################')
 
         logger.info({
             'action': 'get_request',
-            'table': table
+            'table': table,
+            'id': id
         })
-        id = 1
+        # id = 1
         res = db.Db.get_all_menu(table, id)
         responseData = {
             'data': res
