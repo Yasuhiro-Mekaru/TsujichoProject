@@ -179,52 +179,44 @@ def post_request():
 
 
 """
-initのgetDataで全メニューデータを取得する処理
+メニューデータを取得する処理
 """
 @app.route('/get_db', methods=['GET', 'POST'])
 def get_request():
+
     logger.info({
         'action': '/get_db',
         'status': 'run',
     })
 
+    #androidからのリクエストに対する処理
     if request.method == 'POST':
-        json_data = request.get_json()
-        print('#################')
-        print('json_data: {}'.format(json_data))
-        print(type(json_data))
+        #jsonデータを受け取り中のデータを取得する処理
+        json_data = request.get_json()  #typeはdict型
         json_value_data = json_data['data']
-        print('json_value_data: {}'.format(json_value_data))
-        print(type(json_value_data))
         table = json_value_data['table']
-        print('table: {}'.format(table))
-        ##languageIdの値を取り出す処理
         id = json_value_data['languageId']
-        print('id: {}'.format(id))
-        print(type(id))
-        print('#################')
-
         logger.info({
-            'action': 'get_request',
+            'action': '/get_db, android',
             'table': table,
             'id': id
         })
-        # id = 1
         res = db.Db.get_all_menu(table, id)
         responseData = {
             'data': res
         }
         logger.info({
-            'action': 'get_request',
+            'action': '/get_db, response',
             'response': responseData,
             'response type': type(responseData)
         })
-
         return jsonify(responseData)
+
+    #webブラウザからのリクエストに対する処理
     else:
         table = request.values['table']
         logger.info({
-            'action': 'get_request',
+            'action': '/get_db browser',
             'table': table
         })
         res = db.Db.get_all_menu(table)
@@ -232,13 +224,12 @@ def get_request():
             'data': res
         }
         logger.info({
-            'action': 'get_request',
+            'action': '/get_db, response',
             'response': responseData,
             'response type': type(responseData)
         })
 
         return responseData
-
 
 
 """
