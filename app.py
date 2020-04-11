@@ -199,7 +199,7 @@ def get_request():
         table = json_value_data['table']
         print('table: {}'.format(table))
         ##languageIdの値を取り出す処理
-        id = json_value_data['id']
+        id = json_value_data['languageId']
         print('id: {}'.format(id))
         print(type(id))
         print('#################')
